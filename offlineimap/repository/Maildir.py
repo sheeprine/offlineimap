@@ -167,6 +167,7 @@ class MaildirRepository(BaseRepository):
 
         # Iterate over directories in top & top itself.
         for dirname in os.listdir(toppath) + ['']:
+            dirname = dirname.decode('utf-8')
             self.debug("  dirname = %s"% dirname)
             if dirname == '' and extension is not None:
                 self.debug('  skip this entry (already scanned)')

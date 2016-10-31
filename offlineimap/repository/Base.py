@@ -196,7 +196,7 @@ class BaseRepository(CustomConfig.ConfigHelperMixin):
             if not dst_repo.get_create_folders():
                 break
 
-            if src_folder.sync_this and not src_name_t in dst_folders:
+            if src_folder.sync_this and not src_name_t in dst_hash:
                 try:
                     dst_repo.makefolder(src_name_t)
                     dst_haschanged = True # Need to refresh list.
@@ -213,7 +213,7 @@ class BaseRepository(CustomConfig.ConfigHelperMixin):
                 # Don't create missing folder on readonly repo.
                 break
 
-            if dst_folder.sync_this and not dst_name_t in src_folders:
+            if dst_folder.sync_this and not dst_name_t in src_hash:
                 # nametrans sanity check!
                 # Does nametrans back&forth lead to identical names?
                 # 1) would src repo filter out the new folder name? In this

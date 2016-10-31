@@ -97,12 +97,7 @@ class BaseFolder(object):
 
     def __str__(self):
         # FIMXE: remove calls of this. We have getname().
-        return self.name
-
-    def __unicode__(self):
-        # NOTE(sheeprine): Implicit call to this by UIBase deletingflags() which
-        # fails if the str is utf-8
-        return self.name.decode('utf-8')
+        return self.name.encode('utf-8')
 
     def __enter__(self):
         """Starts a transaction. This will postpone (guaranteed) saving to disk

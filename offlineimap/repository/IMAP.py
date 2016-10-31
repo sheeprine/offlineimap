@@ -492,7 +492,7 @@ class IMAPRepository(BaseRepository):
 
         if self.foldersort is None:
             # default sorting by case insensitive transposed name
-            retval.sort(key=lambda x: str.lower(x.getvisiblename()))
+            retval.sort(key=lambda x: x.getvisiblename().lower())
         else:
             # do foldersort in a python3-compatible way
             # http://bytes.com/topic/python/answers/844614-python-3-sorting-comparison-function

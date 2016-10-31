@@ -367,6 +367,6 @@ def decode_mailbox_name(name):
     ret = MUTF7_SHIFT_RE.sub(demodify, name)
 
     try:
-        return ret.decode('utf-7').encode('utf-8')
-    except UnicodeEncodeError:
+        return ret.decode('utf-7')
+    except (UnicodeDecodeError, UnicodeEncodeError):
         return name
